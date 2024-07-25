@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 # Load the model once
 @st.cache_resource
 def load_model():
-    return YOLO("C:\\Users\\rishi\\best.pt", task='yolov5s') # Change the location of the model.
+    return YOLO("best.pt", task='yolov5s') # Change the location of the model.
 
 model_data = load_model()
 
@@ -18,7 +18,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png
 if uploaded_file is not None:
     # Save the uploaded file
     image = Image.open(uploaded_file)
-    image_path = rf"C:\\images\\{uploaded_file.name}" # Change the location of image that you saved.
+    image_path = rf"images/{uploaded_file.name}" # Change the location of image that you saved
     image.save(image_path)
 
     # Run object detection
